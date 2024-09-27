@@ -1,46 +1,52 @@
-const express = require('express');
-const fs = require('fs');
-const bodyParser = require('body-parser');
-const app = express();
-const PORT = 8000;
+const express = require('express')
+const cors = require('cors')
+const compression = require('cookie-parser')
+const cookieParser = require('cookie-parser');
+// const connect = require('./configs/db'); when we have a database
 
-// Middleware to log requests
-app.use((req, res, next) => {
-    const log = `${Date.now()} : ${req.method} ${req.url} Received\n`;
-    fs.appendFile('log.txt', log, (err) => {
-        if (err) {
-            console.error('Error writing to log file');
-        }
-    });
-    next();
+const PORT = 8000
+// const {} = require('./routes') //routes
+
+
+const app = express()
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cookieParser());
+app.use(compression());
+// app.use(cors({
+//     origin: ['http://localhost:3000/'],
+//     credentials : true
+// }))
+app.use(cors())
+
+// routes
+app.use('/api/auth', authRoute);
+
+app.post('/', (request, response) => {
+    response.send('Hello, Big Man!')
+})
+
+app.post('/ip', (request, response) => {
+    // Try to get the 'x-forwarded-for' header (which could contain a comma-separated list of IPs)
+    const forwarded = request.headers['x-forwarded-for'];
+    
+    // Fallback to the remote address if no forwarded IP is found
+    const remoteAddress = request.socket.remoteAddress;
+    
+    // If the 'x-forwarded-for' is present, split and get the first IP
+    const ip = forwarded ? forwarded.split(',')[0] : remoteAddress;
+
+    return response.send({ ip });
 });
 
-// Middleware to parse JSON and form data
-app.use(express.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-// GET route for home page
-app.get('/', (req, res) => {
-    res.json({ "greeting": "from home page" });
-});
-
-// POST route for registration
-app.post('/register', (req, res) => {
-    const userData = req.body; // assuming the data is sent in the body of the request
-
-    // You can log or handle the posted data
-    console.log('User Data:', userData);
-
-    // Send a response
-    res.json({ "status": "User registered successfully", "data": userData });
-});
-
-// 404 handler for undefined routes
-app.use((req, res) => {
-    res.status(404).json({ "error": "Page not found" });
-});
-
-// Start the server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, async () => {
+    try {
+        // await connect();
+        console.log(`Listening at http://localhost:${PORT}`)
+    }
+    catch ({ message }) {
+        console.log(message)
+    }
+})
