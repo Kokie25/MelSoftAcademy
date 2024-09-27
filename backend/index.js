@@ -1,11 +1,12 @@
+require('dotenv').config();
 const express = require('express')
 const cors = require('cors')
-const compression = require('cookie-parser')
-const cookieParser = require('cookie-parser');
-// const connect = require('./configs/db'); when we have a database
+const compression = require('compression')
+const cookieParser = require('cookie-parser')
+const connect = require('./config/database') //when we have a database
 
 const PORT = 8000
-// const {} = require('./routes') //routes
+const { userRoute, conversationRoute, gigRoute, messageRoute, orderRoute, reviewRoute, authRoute } = require('./routes');
 
 
 const app = express()
@@ -14,20 +15,22 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(compression());
-// app.use(cors({
-//     origin: ['http://localhost:3000/'],
-//     credentials : true
-// }))
-app.use(cors())
+app.use(cors({
+    origin: ['http://localhost:3000/'],
+    credentials : true
+}))
+// app.use(cors())
 
 // routes
 app.use('/api/auth', authRoute);
+app.use('/api/users', userRoute);
 
-app.post('/', (request, response) => {
+
+app.get('/', (request, response) => {
     response.send('Hello, Big Man!')
 })
 
-app.post('/ip', (request, response) => {
+app.get('/ip', (request, response) => {
     // Try to get the 'x-forwarded-for' header (which could contain a comma-separated list of IPs)
     const forwarded = request.headers['x-forwarded-for'];
     
