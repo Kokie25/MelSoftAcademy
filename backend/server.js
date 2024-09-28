@@ -1,28 +1,38 @@
+require('dotenv').config();
 const express = require('express');
-const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors'); // Import CORS
 const userRoutes = require('./routes/userRoutes');
+const workerRoutes = require('./routes/workerRoutes');
 const taskRoutes = require('./routes/taskRoutes');
-const workerRoutes = require('./routes/workerRoutes')
-const connect = require('./config/db');
-require('dotenv').config(); // To load environment variables from .env file
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
-app.use(bodyParser.json());
-app.use('/api/users', userRoutes);
-app.use('/api', taskRoutes); // Use task routes under /api
-app.use('/api/workers', workerRoutes);
+mongoose.set('strictQuery', true);
+const connect = () => {
+    return mongoose.connect(process.env.MONGODB_URI);
+};
 
-// MongoDB connection
-connect()
-  .then(() => {
-    console.log('Connected to MongoDB');
-    app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.error('MongoDB connection error:', err);
-  });
+// Use CORS middleware
+const corsOptions = {
+    origin: 'http://localhost:3000', // Replace with your frontend URL
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions)); // Enable CORS for all routes
+
+app.use(express.json());
+app.use('/api/users', userRoutes);
+app.use('/api/workers', workerRoutes);
+app.use('/api/tasks', taskRoutes);
+
+app.listen(PORT, async () => {
+    try {
+        await connect();
+        console.log(`Listening at http://localhost:${PORT}`);
+    } catch (error) {
+        console.log('MongoDB connection error:', error.message);
+    }
+});
