@@ -1,0 +1,40 @@
+/* ProfileIcon.css */
+.profile-icon {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .profile-icon-img {
+    width: 60px; /* Adjust size as necessary */
+    height: 60px; /* Adjust size as necessary */
+    border-radius: 50%; /* To make it circular */
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%; /* Place it below the icon */
+    right: 0; /* Align to the right */
+    background-color: rgb(130, 136, 150); /* Background color */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+    z-index: 10; /* Ensure it appears above other elements */
+    width: 150px; /* Width of dropdown */
+  }
+  
+  .dropdown-menu ul {
+    list-style-type: none; /* Remove default list styles */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .dropdown-menu li {
+    padding: 10px; /* Spacing for each item */
+    cursor: pointer; /* Pointer on hover */
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: #374c75;
+    /* Change background on hover */
+  }
+  
