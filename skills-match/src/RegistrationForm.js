@@ -37,7 +37,7 @@ function RegistrationForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!formData.id || !formData.cv || !formData.driversLicense || !formData.highestqualification) {
+    if (!formData.id) {
       setUploadStatus('Please fill in all required fields and upload all required documents.');
       return;
     }
@@ -148,7 +148,6 @@ function RegistrationForm() {
               name="cv"
               accept=".pdf,.doc,.docx"
               onChange={handleFileChange}
-              required
             />
           </div>
 

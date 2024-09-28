@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<LandingPage/>} />
         <Route path="/App" element={<RegistrationForm />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/profile" element={<Profile />} /> {/* Add route for profile */}
+        <Route path="/profile" element={<Profile />} /> 
       </Routes>
     </Router>
   );

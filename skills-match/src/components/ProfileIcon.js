@@ -34,7 +34,7 @@ function ProfileIcon() {
   };
 
   const handleJobHistory = () => {
-    alert("Showing job history pop-up."); // Display a pop-up for job history
+    alert("Showing history pop-up."); // Display a pop-up for job history
     closeDropdown(); // Close dropdown after clicking
   };
 

@@ -14,10 +14,10 @@ function Dashboard() {
     // Simulate an API call to fetch jobs based on the location and job details
     const simulatedJobs = [
       { id: 1, title: 'Plumber', description: 'Fixes pipes', location: 'Johannesburg' },
-      { id: 2, title: 'Electrician', description: 'Fixes electrical issues', location: 'Cape Town' },
-      { id: 3, title: 'Carpenter', description: 'Works with wood', location: 'Durban' },
-      { id: 4, title: 'Software Developer', description: 'Builds apps', location: 'Pretoria' },
-      { id: 5, title: 'Doctor', description: 'Medical professional', location: 'Port Elizabeth' },
+      { id: 2, title: 'Electrician', description: 'Fixes electrical issues', location: 'Johannesburg' },
+      { id: 3, title: 'Carpenter', description: 'Works with wood', location: 'Johannesburg' },
+      { id: 4, title: 'Hairstylist', description: 'Braid hair', location: 'Johannesburg' },
+      { id: 5, title: 'Helper', description: 'Takes care of your Home', location: 'Johannesburg' },
     ];
   
     // Filter jobs by location and match job title
