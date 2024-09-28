@@ -64,8 +64,8 @@ function RegistrationForm() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Register</h1>
         <form onSubmit={handleSubmit}>
+        <h1>Register</h1>
           <div className="formgroup">
             <label htmlFor="username">Fullnames:</label>
             <input

@@ -9,6 +9,10 @@ header {
   color: #fff;
   padding: 1em;
   text-align: center;
+  display: flex;
+  justify-content: space-between; /* Space out brand and profile icon */
+  align-items: center; /* Center vertically */
+  padding: 10px 20px;
 }
 
 
@@ -57,7 +61,7 @@ nav a {
 }
 
 .formGroup {
-  margin-bottom: 15px;
+  margin: 15px 10px 10px 0px;
 }
 
 .formGroup label {
@@ -74,9 +78,8 @@ nav a {
 }
 
 
-
-
 .submitButton {
+  margin: 20px 10px 25px 0px;
   background-color: #28a745;
   color: white;
   padding: 10px 20px;
@@ -140,6 +143,23 @@ footer {
   text-align: center;
   clear: both;
 }
+
+
+.rec{
+  margin-top: 25px;
+  background-color: #2E4053;
+  color: #fff;
+  border: none;
+  padding: 20px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+
+
+
+
 
 
 
