@@ -59,3 +59,15 @@
         "userEmail": "jane.doe@example.com"
     }
 ```
+
+## Register Workers
+### POST /api/workers/register
+
+```json
+    {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "skills": ["Plumbing", "Carpentry"],
+    "contactNumber": "1234567890"
+    }
+```
