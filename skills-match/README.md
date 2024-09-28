@@ -23,8 +23,11 @@ Installation
 
     bash
 
-git clone https://github.com/Koketso25/work-wire.git
-cd work-wire
+git clone https://github.com/Kokie25/MelSoftAcademy.git
+
+To run the app:
+cd Skills-match
+npm start
 
 Install dependencies for both frontend and backend:
 
