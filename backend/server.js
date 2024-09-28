@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const taskRoutes = require('./routes/taskRoutes');
+const workerRoutes = require('./routes/workerRoutes')
 const connect = require('./config/db');
 require('dotenv').config(); // To load environment variables from .env file
 
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use('/api/users', userRoutes);
 app.use('/api', taskRoutes); // Use task routes under /api
+app.use('/api/workers', workerRoutes);
 
 // MongoDB connection
 connect()
@@ -24,12 +26,3 @@ connect()
   .catch((err) => {
     console.error('MongoDB connection error:', err);
   });
-// app.listen(PORT, async () => {
-//     try {
-//         await connect();
-//         console.log(`Listening at http://localhost:${PORT}`);
-//     }
-//     catch ({ message }) {
-//         console.log(message);
-//     }
-// })

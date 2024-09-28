@@ -37,11 +37,11 @@
 
 ```json
     {
-    "taskName": "Windows",
-    "compensation": 500,
-    "description": "Clean my windows.",
-    "location": "Remote",
-    "userEmail": "john.doe@example.com"
+        "taskName": "Windows",
+        "compensation": 500,
+        "description": "Clean my windows.",
+        "location": "Remote",
+        "userEmail": "john.doe@example.com"
     }
 ```
 
@@ -50,3 +50,12 @@
 
 ## Get Jobs/Tasks by User
 ### GET /api/tasks/user/:userEmail
+
+## Accept a Task
+### PUT /api/tasks/:taskId/accept
+
+```json
+    {
+        "userEmail": "jane.doe@example.com"
+    }
+```
