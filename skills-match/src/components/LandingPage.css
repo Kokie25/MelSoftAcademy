@@ -2,64 +2,69 @@
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-  }
-  
-  header {
+}
+
+header {
     background-color: #2E4053;
     color: #fff;
     padding: 1em;
     text-align: center;
-  }
-  
-  .appName {
+}
+
+.appName {
     font-size: 28px;
     color: white;
     font-weight: bold;
-    margin: 0;
+    margin: 10px 0; /* Reduced margin to decrease space below heading */
     padding-right: 20px;
     font-family: 'Arial', sans-serif;
-  }
-  
-  .hero {
+}
+
+.hero {
     background-image: linear-gradient(to bottom, #2E4053, #fff);
     padding: 5em 2em;
     text-align: center;
-  }
-  
-  .hero h1 {
+}
+
+.hero h1 {
     color: #fff;
     font-size: 36px;
-    margin-bottom: 10px;
-  }
-  
-  .hero h2 {
+    margin-top: 10px; /* Decreased margin-top to bring h1 closer to the heading */
+    margin-bottom: 20px; /* Adjust margin-bottom as needed */
+}
+
+.hero h2 {
     color: #fff;
     font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .hero p {
+    margin-bottom: 20px;
+}
+
+.hero p {
     color: #fff;
     font-size: 18px;
     margin-bottom: 20px;
-  }
-  
-  .submitButton {
+    max-width: 600px;  /* Limit paragraph width */
+    margin: 0 auto;    /* Center the paragraph */
+    line-height: 1.6;  /* Add some line spacing for readability */
+}
+
+.submitButton {
     background-color: #28a745;
     color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-  }
-  
-  .submitButton:hover {
+    margin-top: 40px; /* Add margin to bring the button down */
+}
+
+.submitButton:hover {
     background-color: #218838;
-  }
-  
-  footer {
+}
+
+footer {
     background-color: #2E4053;
     color: #fff;
     padding: 1em;
     text-align: center;
-  }
+}

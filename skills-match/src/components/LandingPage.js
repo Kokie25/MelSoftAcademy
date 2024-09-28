@@ -6,7 +6,7 @@ function LandingPage() {
     const navigate = useNavigate(); // Initialize useNavigate
 
     const handleGetStarted = () => {
-        navigate('/App'); // Replace '/next-page' with your target route
+        navigate('/dashboard'); // Replace '/next-page' with your target route
     };
 
     return (
