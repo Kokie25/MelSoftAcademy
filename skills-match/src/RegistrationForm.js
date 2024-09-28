@@ -1,5 +1,4 @@
 import './App.css';
-import Dashboard from './components/Dashboard'; // Adjust the path if necessary
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
@@ -67,7 +66,7 @@ function RegistrationForm() {
       <header className="App-header">
         <h1>Register</h1>
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="username">Fullnames:</label>
             <input
               type="text"
@@ -79,7 +78,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="contacts">Contact Numbers:</label>
             <input
               type="text"
@@ -91,7 +90,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="password">Password:</label>
             <input
               type="password"
@@ -103,7 +102,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="skills">Skills:</label>
             <input
               type="text"
@@ -115,7 +114,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="location">Location:</label>
             <input
               type="text"
@@ -129,7 +128,7 @@ function RegistrationForm() {
 
           <h2>Upload Your Documents</h2>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="id">Upload ID:</label>
             <input
               type="file"
@@ -141,7 +140,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="cv">Upload CV:</label>
             <input
               type="file"
@@ -153,7 +152,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="driversLicense">Upload Driver's License:</label>
             <input
               type="file"
@@ -164,7 +163,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <div className="form-group">
+          <div className="formgroup">
             <label htmlFor="highestqualification">Upload highest qualification:</label>
             <input
               type="file"
@@ -175,7 +174,7 @@ function RegistrationForm() {
             />
           </div>
 
-          <button type="submit">Submit Registration and Upload Documents</button>
+          <button className='btn' type="submit">Submit Registration and Upload Documents</button>
         </form>
 
         <p>{uploadStatus}</p>

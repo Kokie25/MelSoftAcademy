@@ -1,37 +1,59 @@
-import React, { useState } from 'react';
-import UserProfile from './UserProfile';
-import PostForm from './PostForm';
-import JobSearch from './JobSearch';
+import React from 'react';
+import './Dashboard.css'; // Import the CSS file
 
 function Dashboard() {
-  const [user, setUser] = useState({
-    name: '',   // This will be replaced by the registered username
-    contact: '',
-    location: '', // New location field
-  });
-
-  const [posts, setPosts] = useState([]);
-
-  const handlePost = (newPost) => {
-    setPosts((prevPosts) => [...prevPosts, newPost]);
-  };
-
-  const handleSearch = (query) => {
-    console.log('Searching for jobs related to:', query);
-    // Implement your job search logic here
-  };
-
   return (
-    <div className="dashboard">
-      <JobSearch onSearch={handleSearch} />
-      <UserProfile user={user} /> {/* Pass location to UserProfile */}
-      <PostForm onPost={handlePost} />
-      <h2>Posts</h2>
-      <ul>
-        {posts.map((post, index) => (
-          <li key={index}>{post}</li>
-        ))}
-      </ul>
+    <div className="Dashboard-app">
+      <header>
+        <div className="brand">
+          <h1 className="appName">Work Wire</h1>
+        </div>
+      </header>
+      <main>
+        <section className="hero">
+          <h1>Post a Job and Find the Perfect Worker</h1>
+          <p>Fill in the details below to post your job and get matched with workers</p>
+
+          {/* Job Posting Form */}
+          <form>
+            <div className="formGroup">
+              <label htmlFor="jobTitle">Job Title</label>
+              <input 
+                type="text" 
+                id="jobTitle" 
+                placeholder="Enter job title" 
+                required 
+              />
+            </div>
+
+            <div className="formGroup">
+              <label htmlFor="jobDescription">Job Description</label>
+              <input
+                type='text'
+                id="jobDescription" 
+                placeholder="Describe the job" 
+                required
+              />
+            </div>
+
+            <div className="formGroup">
+              <label htmlFor="location">Location</label>
+              <input 
+                type="text" 
+                id="location" 
+                placeholder="Enter job location" 
+                required 
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button type="submit" className="submitButton">Post Job</button>
+          </form>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 Work Wire</p>
+      </footer>
     </div>
   );
 }

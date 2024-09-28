@@ -1,18 +1,25 @@
 .App {
   text-align: center;
-  background-color: beige;
+
 }
 
 form {
   display: flex;
   flex-direction: column;
+  width: 100%;
   align-items:center;
+  background-color: #3b5066;
+  color: #fff;
 
   
 }
 
-/* Styling for the form-group to ensure label is above the input */
-.form-group {
+.App-header{
+  background-color: #3b5066;
+  color: #fff;
+}
+
+.formgroup {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
@@ -32,23 +39,23 @@ input[type="file"] {
   border-radius: 4px;
 }
 
-button {
+.btn {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #4CAF50;
   color: white;
   border: none;
+  background-color: rgb(48, 48, 70);
   border-radius: 5px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #45a049;
+.btn:hover {
+  background-color: #3751b1;
 }
 
 h1, h2 {
-  color: #333;
+  color: white;
 }
 
 p {
